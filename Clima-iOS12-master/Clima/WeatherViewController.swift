@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import CoreLocation //framework to obtain gps location of device
 
-
-class WeatherViewController: UIViewController {
-    
+class WeatherViewController: UIViewController, CLLocationManagerDelegate {
+    //CLLocationManagerDelegate is a protocol for how we will handle gps data
     //Constants
-    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-    let APP_ID = "e72ca729af228beabd5d20e3b7749713"
+    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather" //this is where data is from
+    let APP_ID = "0be05be823fdb1e80319c64ea2dbdc9a" //this is id for api
     /***Get your own App ID at https://openweathermap.org/appid ****/
     
 
     //TODO: Declare instance variables here
+    let location_manager = CLLocationManager()
     
 
     
@@ -32,7 +33,8 @@ class WeatherViewController: UIViewController {
         
         
         //TODO:Set up the location manager here.
-    
+    location_manager.delegate = self//delegate is giving us the responsibility to handle the gps data
+        //in order to take the data you set yourself as the delegate
         
         
     }
